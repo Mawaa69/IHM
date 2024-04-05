@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+ <title> Fiche de renseignements </title>
+ <link type="text/css" rel="stylesheet" href= "./css/tpnot.css">
+</head>
+<body>
+    <div id="div_eval">
+        <div id="div_affichage">
+            <div id="texte">
+                <p id="p_texteLongueur">test</p>
+            </div>
+             <div class="labeltitre"></div>
+                <select id="select_liste" class="liste" size="10">
+                </select>
+             <div class="labeltitre"></div>  
+             <div class="buttons_list">
+
+                <input id="btn_add" type="button" value="ajouter"> 
+                <input id="btn_delete" type="button" value="Retirer"> 
+            </div>
+        </div>
+        <div class="labeltitree">Nouvelle serie</div>
+        <div id="div_formulaire">
+            <span>
+                <div class="labeltitre">création</div>
+                <div class="div_création">
+               
+                <input type="radio" id="radio_francais" name="creation" value="Francais">
+                <label for="francais">Francaise</label>
+                <br>
+                <input type="radio" id="radio_eu" name="creation" value="Européenne">
+                <label for="eu">Européenne</label>
+                <br>
+                <input type="radio" id="radio_Américain" name="creation" value="Américaine">
+                <label for="Américaine">Américaine</label>
+                <br>
+                <input type="radio" id="radio_autre" name="creation" value="autre">
+                <label for="autre">autre</label>
+            </div>
+            </span>
+            <div class="add_right_part">
+                <div class="input">
+                    <label class="label" for="frenchTitle">Titre français</label>
+                    <input id="frenchTitle" type="text" class="frenchTitle">
+                </div>
+                <div class="input">
+                    <label class="label" for="originalTitle">Titre original</label>
+                    <input id="originalTitle" type="text" class="originalTitle">
+                </div>
+                <div class="inputs_number">
+                    <div class="input_number">
+                        <label class="label" for="seasonNumber">Nombre de saison</label>
+                        <input type="number" class="seasonNumber" id="seasonNumber">
+                    </div>
+                    <div class="input_number">
+                        <label class="label" for="episodeNumber">Nombre d'épisodes</label>
+                        <input type="number" class="episodeNumber" id="episodeNumber">
+                    </div>
+                    <div class="input_number">
+                        <label class="label" for="firstDiffusionDate">Première date de diffusion</label>
+                        <input type="date" class="firstDiffusionDate" id="firstDiffusionDate">
+                    </div>
+                </div>
+                <div class="buttons_add">
+                  <input id="btn_valide" type="button" value="Valider"> 
+                  <input id="btn_cancel" type="button" value="Annuler"> 
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+ <script type = "module" src ="../controleur/tpnot.js">
+ </script>
+</html>
