@@ -16,7 +16,7 @@ type TEvalForm = {
     btnRetirer: HTMLInputElement;
     btnValider: HTMLInputElement;
     btnAnnuler: HTMLInputElement;
-    texteSeries: HTMLElement;
+    texteSeries: HTMLParagraphElement;
 };
 
 class VueEval {
