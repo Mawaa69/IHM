@@ -24,7 +24,7 @@ class VueEval {
 
     init(form: TEvalForm): void {
         this._form = form;
-        this.form.labelTitre.hidden = true;
+        //this.form.labelTitre.hidden = true;
 
         this.form.divFormulaire.hidden = true;
         this.form.mini.hidden = true;
