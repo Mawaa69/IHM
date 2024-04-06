@@ -34,16 +34,19 @@ class VueEval {
 
         this.form.btnAjouter.onclick = function(): void {
             vueEval.afficheFormulaire();
+            vueEval.masquerListe();
         };
         this.form.btnAnnuler.onclick = function(): void {
             vueEval.cacherFromulaire();
             vueEval.resetForm();
+            vueEval.afficherListe();
         };
         this.form.btnRetirer.onclick = function(): void {
             vueEval.supprimerLigne();
         };
         this.form.btnValider.onclick = function(): void {
             vueEval.ajouterLigne();
+            vueEval.afficherListe();
         };
         this.form.nbSaison.onchange = function(): void {
             vueEval.Mini();
@@ -66,6 +69,18 @@ class VueEval {
         }
     }
 
+    masquerListe(): void{
+        this.form.liste.disabled = true;
+        this.form.btnRetirer.disabled = true;
+        this.form.btnAjouter.disabled = true;
+    }
+
+    afficherListe(): void{
+        this.form.liste.disabled = false;
+        this.form.btnRetirer.disabled = false;
+        this.form.btnAjouter.disabled = false;
+    }
+
     resetForm(): void {
         this.form.edtOrTitle.value = "";
         this.form.edtFrTitle.value = "";
@@ -77,9 +92,6 @@ class VueEval {
     }
 
     afficheFormulaire(): void {
-        this.form.liste.disabled = true;
-        this.form.btnRetirer.disabled = true;
-        this.form.btnAjouter.disabled = true;
         this.form.divFormulaire.style.display = "grid";
         this.form.labelTitre.hidden = false;
     }
