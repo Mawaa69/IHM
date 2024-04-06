@@ -24,18 +24,18 @@ class VueEval {
 
     init(form: TEvalForm): void {
         this._form = form;
-        this._form.labelTitre.hidden = true;
+        this.form.labelTitre.hidden = true;
 
-        this._form.divFormulaire.hidden = true;
-        this._form.mini.hidden = true;
-        this._form.miniLabel.hidden = true;
+        this.form.divFormulaire.hidden = true;
+        this.form.mini.hidden = true;
+        this.form.miniLabel.hidden = true;
         this.form.texteSeries.textContent =
             "Nombre de serie répertorier : " + this.form.liste.length;
 
-        this._form.btnAjouter.onclick = function(): void {
+        this.form.btnAjouter.onclick = function(): void {
             vueEval.afficheFormulaire();
         };
-        this._form.btnAnnuler.onclick = function(): void {
+        this.form.btnAnnuler.onclick = function(): void {
             vueEval.cacherFromulaire();
             vueEval.resetForm();
         };
@@ -57,12 +57,12 @@ class VueEval {
     Mini(): void {
         let nbSaison = this.form.nbSaison.value;
         if (parseInt(nbSaison) > 0 && parseInt(nbSaison) <= 5) {
-            this._form.mini.hidden = false;
-            this._form.miniLabel.hidden = false;
+            this.form.mini.hidden = false;
+            this.form.miniLabel.hidden = false;
         } else {
-            this._form.mini.hidden = true;
-            this._form.miniLabel.hidden = true;
-            this._form.mini.checked = false;
+            this.form.mini.hidden = true;
+            this.form.miniLabel.hidden = true;
+            this.form.mini.checked = false;
         }
     }
 
@@ -81,7 +81,7 @@ class VueEval {
         this.form.btnRetirer.disabled = true;
         this.form.btnAjouter.disabled = true;
         this.form.divFormulaire.style.display = "grid";
-        this._form.labelTitre.hidden = false;
+        this.form.labelTitre.hidden = false;
     }
     cacherFromulaire(): void {
         this.form.divFormulaire.style.display = "none";
