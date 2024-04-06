@@ -7,7 +7,7 @@ vueEval.init (
         divFormBoutons: document.querySelector('[id=buttons_add]'),
         radioSolo: document.querySelector('[id=radio_soliste]'),
         radioGroupe: document.querySelector('[id=radio_gr]'),
-        labelTitre: document.querySelector('[id=labeltitre]'),
+        labelTitre: document.querySelector('[id=labeltitree]'),
         radioAutre: document.querySelector('[id=radio_autre]'),
         edtFrTitle: document.querySelector('[id=frenchTitle]'),
         edtOrTitle: document.querySelector('[id=originalTitle]'),
