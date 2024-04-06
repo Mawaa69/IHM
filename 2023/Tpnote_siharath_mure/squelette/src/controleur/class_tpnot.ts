@@ -3,16 +3,15 @@ type TEvalForm = {
     divFormBoutons: HTMLElement;
     liste: HTMLSelectElement;
     divFormulaire: HTMLElement;
-    radiosolo: HTMLInputElement;
-    radiogr: HTMLInputElement;
+    radioSolo: HTMLInputElement;
+    radioGroupe: HTMLInputElement;
     mini: HTMLInputElement;
     radioAutre: HTMLInputElement;
     edtFrTitle: HTMLInputElement;
     miniLabel: HTMLInputElement;
     edtOrTitle: HTMLInputElement;
-    nbsaison: HTMLInputElement;
-    labeltitre: HTMLElement;
-    labeltitree: HTMLElement;
+    nbSaison: HTMLInputElement;
+    labelTitre: HTMLElement;
     btnAjouter: HTMLInputElement;
     btnRetirer: HTMLInputElement;
     btnValider: HTMLInputElement;
@@ -25,7 +24,7 @@ class VueEval {
 
     init(form: TEvalForm): void {
         this._form = form;
-        this._form.labeltitree.hidden = true;
+        this._form.labelTitre.hidden = true;
 
         this._form.divFormulaire.hidden = true;
         this._form.mini.hidden = true;
@@ -33,27 +32,20 @@ class VueEval {
         this.form.texteSeries.textContent =
             "Nombre de serie répertorier : " + this.form.liste.length;
 
-        this._form.radiogr.onclick = function(): void {
-  //          vueEval.afficherOriginal();
-        };
-        this._form.radioAutre.onclick = function(): void {
- //           vueEval.afficherOriginal();
-        };
-
         this._form.btnAjouter.onclick = function(): void {
             vueEval.afficheFormulaire();
         };
         this._form.btnAnnuler.onclick = function(): void {
-            vueEval.cacherformulaire();
-            vueEval.resetform();
+            vueEval.cacherFromulaire();
+            vueEval.resetForm();
         };
         this.form.btnRetirer.onclick = function(): void {
             vueEval.supprimerLigne();
         };
         this.form.btnValider.onclick = function(): void {
-            vueEval.ajouterligne();
+            vueEval.ajouterLigne();
         };
-        this.form.nbsaison.onchange = function(): void {
+        this.form.nbSaison.onchange = function(): void {
             vueEval.Mini();
         };
     }
@@ -63,8 +55,8 @@ class VueEval {
     }
 
     Mini(): void {
-        let nbsaison = this.form.nbsaison.value;
-        if (parseInt(nbsaison) > 0 && parseInt(nbsaison) <= 5) {
+        let nbSaison = this.form.nbSaison.value;
+        if (parseInt(nbSaison) > 0 && parseInt(nbSaison) <= 5) {
             this._form.mini.hidden = false;
             this._form.miniLabel.hidden = false;
         } else {
@@ -74,36 +66,34 @@ class VueEval {
         }
     }
 
-
-    resetform(): void {
+    resetForm(): void {
         this.form.edtOrTitle.value = "";
         this.form.edtFrTitle.value = "";
-        this.form.nbsaison.value = "";
+        this.form.nbSaison.value = "";
         this.form.mini.checked = false;
         this.form.radioAutre.checked = false;
-        this.form.radiogr.checked = false;
-        this.form.radiosolo.checked = false;
+        this.form.radioGroupe.checked = false;
+        this.form.radioSolo.checked = false;
     }
 
-/*    afficherOriginal(): void {
-        this.form.edtOrTitle.disabled = false;
-    }
-*/
     afficheFormulaire(): void {
+        this.form.liste.disabled = true;
+        this.form.btnRetirer.disabled = true;
+        this.form.btnAjouter.disabled = true;
         this.form.divFormulaire.style.display = "grid";
-        this._form.labeltitree.hidden = false;
+        this._form.labelTitre.hidden = false;
     }
-    cacherformulaire(): void {
+    cacherFromulaire(): void {
         this.form.divFormulaire.style.display = "none";
-        this.form.labeltitree.hidden = true;
+        this.form.labelTitre.hidden = true;
 
-        this.form.nbsaison.value = "";
+        this.form.nbSaison.value = "";
         this.form.edtFrTitle.value = "";
         this.form.edtOrTitle.value = "";
 
-        this.form.radiosolo.checked = false;
+        this.form.radioSolo.checked = false;
 
-        this.form.radiogr.checked = false;
+        this.form.radioGroupe.checked = false;
         this.form.radioAutre.checked = false;
     }
     supprimerLigne(): void {
@@ -118,19 +108,19 @@ class VueEval {
         }
     }
 
-    ajouterligne(): void {
+    ajouterLigne(): void {
         let erreur: string = "";
         const titreOr = this.form.edtOrTitle.value.trim();
         const titreFr = this.form.edtFrTitle.value.trim();
-        const nbsaison = this.form.nbsaison.value.trim();
+        const nbSaison = this.form.nbSaison.value.trim();
+        const radsolo = this.form.radioSolo;
+        const radgr = this.form.radioGroupe;
+        const radAutre = this.form.radioAutre;
         let plage = "plage";
         let mini = "mini";
-        const radsolo = this.form.radiosolo;
-        const radgr = this.form.radiogr;
-        const radAutre = this.form.radioAutre;
         let plursaison = "s";
 
-        if (parseInt(nbsaison) > 1) {
+        if (parseInt(nbSaison) > 1) {
             plage += plursaison;
         }
 
@@ -138,11 +128,11 @@ class VueEval {
             erreur += "Saisir titre \n";
         }
 
-        if (nbsaison.length === 0) {
+        if (nbSaison.length === 0) {
             erreur += "Saisir un interprète\n";
         }
 
-        if (parseInt(nbsaison) < 0) {
+        if (parseInt(nbSaison) < 0) {
             erreur += "Nombre de plage negatif\n";
         }
         if (!radsolo.checked && !radgr.checked && !radAutre.checked) {
@@ -165,7 +155,7 @@ class VueEval {
                         " - " +
                         type +
                         " - " +
-                        nbsaison +
+                        nbSaison +
                         " " +
                         plage,
                     ),
@@ -181,7 +171,7 @@ class VueEval {
                         " - " +
                         mini +
                         " " +
-                        nbsaison +
+                        nbSaison +
                         " " +
                         plage,
                     ),
@@ -191,7 +181,7 @@ class VueEval {
             this.form.texteSeries.textContent =
                 "Nombre d'album répertorier : " + liste.length;
 
-            this.cacherformulaire();
+            this.cacherFromulaire();
         } else {
             alert("Erreur dans le formulaire\n" + erreur);
         }
