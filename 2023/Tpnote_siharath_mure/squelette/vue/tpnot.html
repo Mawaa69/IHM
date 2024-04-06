@@ -8,14 +8,13 @@
   <body>
     <H2>Gestion d'une Audiotheque</H2>
     <div id="div_eval">
-      
       <div id="div_affichage">
         <div id="texte">
           <p id="p_texteLongueur">test</p>
         </div>
-        <div class="labeltitre"></div>
+        <div class="labeltitre">
         <select id="select_liste" class="liste" size="10"></select>
-        <div class="labeltitre"></div>
+        </div>
         <div class="buttons_list">
           <input id="btn_add" type="button" value="ajouter" />
           <input id="btn_delete" type="button" value="Retirer" />
@@ -26,28 +25,13 @@
         <span>
           <div class="labeltitre">création</div>
           <div class="div_création">
-            <input
-              type="radio"
-              id="radio_soliste"
-              name="creation"
-              value="soliste"
-            />
+            <input type="radio" id="radio_soliste" name="creation" value="soliste"/>
             <label for="soliste">soliste</label>
             <br />
-            <input
-              type="radio"
-              id="radio_gr"
-              name="creation"
-              value="Européenne"
-            />
+            <input type="radio" id="radio_gr" name="creation" value="Européenne"/>
             <label for="eu">groupe</label>
             <br />
-            <input
-              type="radio"
-              id="radio_autre"
-              name="creation"
-              value="autre"
-            />
+            <input type="radio" id="radio_autre" name="creation" value="autre"/>
             <label for="autre">autre</label>
           </div>
         </span>
@@ -67,8 +51,6 @@
               <label id="miniLabel" for="mini">Mini album</label>
             </div>
           </div>
-
-          
           <div class="buttons_add">
             <input id="btn_valide" type="button" value="Valider" />
             <input id="btn_cancel" type="button" value="Annuler" />
